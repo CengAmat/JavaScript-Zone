@@ -1,2 +1,0 @@
-# JavaScriptTutorial
-Java Script Tutorial
