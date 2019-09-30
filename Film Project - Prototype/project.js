@@ -6,6 +6,9 @@ const urlElement = document.querySelector("#url");
 // Initialize UI Object
 const ui = new UI();
 
+// Create Storage Object
+const storage = new Storage();
+
 // Load all events
 eventListeners();
 
@@ -25,6 +28,7 @@ function addFilm(e) {
         // New Film
         const newFilm = new Film(title, director, url);
         ui.addFilmToUI(newFilm); // Add Film to UI
+        storage.addFilmToStorage(newFilm); // Add Film to Storage
         ui.displayMessages("Film Added Succesfully", "success")
     }
     ui.clearInputs(titleElement, directorElement, urlElement);
