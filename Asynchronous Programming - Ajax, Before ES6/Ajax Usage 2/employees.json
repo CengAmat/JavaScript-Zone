@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Ahmet Zurnacı",
+        "department": "Technology",
+        "salary": 5000
+    },
+    {
+        "name": "Harry Potter",
+        "department": "Wizard",
+        "salary": 6000
+    },
+    {
+        "name": "Peter Parker",
+        "department": "Photographer",
+        "salary": 7000
+    }
+]
