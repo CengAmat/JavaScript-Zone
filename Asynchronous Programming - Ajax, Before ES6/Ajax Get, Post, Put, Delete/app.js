@@ -21,22 +21,46 @@ class Request {
             }
             else {
                 // Exception
-                callback("An Error Occured..", null);
+                callback("Get Request : An Error Occured..", null);
             }
         }
 
         this.xhr.send();
     }
+    post(url, data, callback) {
+        this.xhr.open("POST", url);
+        this.xhr.setRequestHeader("Content-type", "application/json"); // JSON Data 
+        this.xhr.onload = () => {
+            if (this.xhr.status === 201) {
+                // Success
+                callback(null, this.xhr.responseText);
+            }
+            else {
+                callback("Post Request : Error occured...", null);
+            }
+        }
+        this.xhr.send(JSON.stringify(data));
+    }
 }
 
 const request = new Request();
 
-request.get("https://jsonplaceholder.typicode.com/albums/50", function (err, response) {
+// request.get("https://jsonplaceholder.typicode.com/albums/50", function (err, response) {
+//     if (err === null) {
+//         // Success
+//         console.log(response);
+//     }
+//     else {
+//         // Error
+//         console.log(err);
+//     }
+// });
+
+request.post("https://jsonplaceholder.typicode.com/albums", { userid: 2, title: "Thriller" }, function (err, album) {
     if (err === null) {
-        console.log(response);
+        console.log(album);
     }
     else {
-        // Error
         console.log(err);
     }
-});
+})
