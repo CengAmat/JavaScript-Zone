@@ -59,4 +59,26 @@ class UI {
         }, 2000)
     }
 
+    showRepoInfo(repos) {
+        this.repoDiv.innerHTML = "";
+        repos.forEach(repo => {
+            this.repoDiv.innerHTML += `
+            <div class="mb-2 card-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <span></span>
+                        <a href="${repo.html_url}" target="_blank" id="repoName">${repo.name}</a>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-secondary">
+                            Starlar <span class="badge badge-light" id="repoStar">${repo.stargazers_count}</span>
+                        </button>
+                        <button class="btn btn-info">
+                            Forklar <span class="badge badge-light" id="repoFork">${repo.forks_count}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>`;
+        })
+    }
 }
